@@ -31,3 +31,23 @@ func TestTwoItems(t *testing.T) {
 		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 2, maxSame)
 	}
 }
+
+func TestThreeItemsEvenEqual(t *testing.T) {
+	a := []int{1, 2, 1}
+
+	maxSame := MaxSame(a)
+
+	if maxSame != 3 {
+		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 3, maxSame)
+	}
+}
+
+func TestThreeItemsNoneEqual(t *testing.T) {
+	a := []int{1, 2, 3}
+
+	maxSame := MaxSame(a)
+
+	if maxSame != 2 {
+		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 2, maxSame)
+	}
+}
