@@ -2,52 +2,37 @@ package main
 
 import "testing"
 
-func TestEmpty(t *testing.T) {
-	a := []int{}
-
-	maxSame := MaxSame(a)
-
-	if maxSame != 0 {
-		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 0, maxSame)
+func assert(a []int, expected int, t *testing.T) {
+	actual := MaxSame(a)
+	if actual != expected {
+		t.Errorf("MaxSame wrong. Expected: %d. Got %d", expected, actual)
 	}
+}
+
+func TestEmpty(t *testing.T) {
+	assert([]int{}, 0, t)
 }
 
 func TestSingleton(t *testing.T) {
-	a := []int{1}
-
-	maxSame := MaxSame(a)
-
-	if maxSame != 1 {
-		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 1, maxSame)
-	}
+	assert([]int{1}, 1, t)
 }
 
 func TestTwoItems(t *testing.T) {
-	a := []int{1, 2}
-
-	maxSame := MaxSame(a)
-
-	if maxSame != 2 {
-		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 2, maxSame)
-	}
-}
-
-func TestThreeItemsEvenEqual(t *testing.T) {
-	a := []int{1, 2, 1}
-
-	maxSame := MaxSame(a)
-
-	if maxSame != 3 {
-		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 3, maxSame)
-	}
+	assert([]int{1, 2}, 2, t)
 }
 
 func TestThreeItemsNoneEqual(t *testing.T) {
-	a := []int{1, 2, 3}
+	assert([]int{1, 2, 3}, 2, t)
+}
 
-	maxSame := MaxSame(a)
+func TestThreeItemsEvenEqual(t *testing.T) {
+	assert([]int{1, 2, 1}, 3, t)
+}
 
-	if maxSame != 2 {
-		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 2, maxSame)
-	}
+func TestFourItemsNoneEqual(t *testing.T) {
+	assert([]int{1, 2, 3, 4}, 2, t)
+}
+
+func TestFourItemsOddEqual(t *testing.T) {
+	assert([]int{1, 2, 3, 4}, 2, t)
 }
