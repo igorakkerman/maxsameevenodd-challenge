@@ -33,6 +33,34 @@ func TestFourItemsNoneEqual(t *testing.T) {
 	assert([]int{1, 2, 3, 4}, 2, t)
 }
 
+func TestFourItemsEvenEqual(t *testing.T) {
+	assert([]int{1, 2, 1, 4}, 3, t)
+}
+
 func TestFourItemsOddEqual(t *testing.T) {
-	assert([]int{1, 2, 3, 4}, 2, t)
+	assert([]int{1, 2, 3, 2}, 3, t)
+}
+
+func TestFourItemsEvenOddEqual(t *testing.T) {
+	assert([]int{1, 2, 1, 2}, 4, t)
+}
+
+func TestFiveItemsFirst3EvenOddEqual(t *testing.T) {
+	assert([]int{1, 2, 1, 3, 4}, 3, t)
+}
+
+func TestFiveItemsLast3EvenOddEqual(t *testing.T) {
+	assert([]int{1, 2, 3, 4, 3}, 3, t)
+}
+
+func TestFiveItemsNoneEqual(t *testing.T) {
+	assert([]int{1, 2, 3, 4, 5}, 2, t)
+}
+
+func TestFiveItems4EvenOddEqual(t *testing.T) {
+	assert([]int{3, 2, 1, 2, 1}, 4, t)
+}
+
+func TestFiveItems5EvenOddEqual(t *testing.T) {
+	assert([]int{1, 2, 1, 2, 1}, 5, t)
 }
