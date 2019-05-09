@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestEmpty_0(t *testing.T) {
+func TestEmpty(t *testing.T) {
 	a := []int{}
 
 	maxSame := MaxSame(a)
@@ -12,12 +12,22 @@ func TestEmpty_0(t *testing.T) {
 	}
 }
 
-func TestSingleton_1(t *testing.T) {
+func TestSingleton(t *testing.T) {
 	a := []int{1}
 
 	maxSame := MaxSame(a)
 
 	if maxSame != 1 {
 		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 1, maxSame)
+	}
+}
+
+func TestTwoItems(t *testing.T) {
+	a := []int{1, 2}
+
+	maxSame := MaxSame(a)
+
+	if maxSame != 2 {
+		t.Errorf("MaxSame wrong. Expected: %d. Got %d", 2, maxSame)
 	}
 }
